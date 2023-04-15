@@ -31,7 +31,15 @@ def login_linkedIn():
     return True
 
 
+def is_login():
+    if DRIVER.find_element(By.CLASS_NAME, 'global-nav__me-photo ember-view'):
+        return True
+    return False
+
+
 def get_Recommendations(username: str):
+    if not is_login():
+        login_linkedIn()
     DRIVER.get(f'{URL_BASE}/in/{username}/details/recommendations')
     sleep(10)
 
