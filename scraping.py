@@ -3,6 +3,7 @@ from time import sleep
 from driver import DRIVER, URL_BASE
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.common.exceptions import NoSuchElementException
 
 from dotenv import load_dotenv, find_dotenv
 
@@ -32,9 +33,12 @@ def login_linkedIn():
 
 
 def is_login():
-    if DRIVER.find_element(By.CLASS_NAME, 'global-nav__me-photo ember-view'):
+    sleep(1)
+    try:
+        DRIVER.find_element(By.CLASS_NAME, 'global-nav__me-photo.ember-view')
         return True
-    return False
+    except NoSuchElementException:
+        return False
 
 
 def get_Recommendations(username: str):
@@ -44,8 +48,8 @@ def get_Recommendations(username: str):
     sleep(10)
 
     recommendations_recieved = DRIVER.find_element(
-        By.XPATH,
-        "/html/body/div[5]/div[3]/div/div/div[2]/div/div/main/section/div[2]/div[2]/div/div/div[1]/ul",
+        By.CSS_SELECTOR,
+        "ul.pvs-list",
     )
 
     lis = recommendations_recieved.find_elements(
