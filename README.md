@@ -1,7 +1,8 @@
 
 <div  align="center"  id="top">
 <img  src="./.github/app.gif"  alt="LinkedIn API Recommendations" />&#xa0;
-<!-- <a href="https://linkedinapirecommendations.netlify.app">Demo</a> -->
+<!-- <a href="https://linkedinapirecommendations.netlify.app">Demo</a> --><br>
+<a  href="https://github.com/Kaduh15/LinkedIn-API-Recommendations/blob/main/README.eng.md"  target="_blank"><strong>Readme - english<strong></a>
 </div>
 <h1  align="center">LinkedIn API Recommendations</h1>
 <p  align="center">
@@ -30,7 +31,6 @@
 <a  href="#white_check_mark-requisitos">Requisitos</a> &#xa0; | &#xa0;
 <a  href="#checkered_flag-iniciando_projeto">Iniciando Projeto</a> &#xa0; | &#xa0;
 <a  href="#memo-license">License</a> &#xa0; | &#xa0;
-<a  href="https://github.com/Kaduh15/LinkedIn-API-Recommendations/blob/main/README.eng.md"  target="_blank">Readme - inglês</a> &#xa0; | &#xa0;
 <a  href="https://github.com/kaduh15"  target="_blank">Autor</a>
 </p>
 <br>
