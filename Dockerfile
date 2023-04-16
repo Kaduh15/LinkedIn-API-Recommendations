@@ -29,10 +29,6 @@ ENV DISPLAY=:99
 COPY . /app
 WORKDIR /app
 
-RUN pip install --upgrade pip
-
 RUN pip install -r requirements.txt
 
-RUN pip list
-
-CMD ["uvicorn", "app.main:app"]
+CMD ["uvicorn", "main:app"]
