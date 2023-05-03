@@ -1,15 +1,28 @@
 import os
 from time import sleep
-from driver import DRIVER, URL_BASE
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from dotenv import load_dotenv, find_dotenv
+from selenium import webdriver
 
 load_dotenv(find_dotenv())
 
+URL_BASE = "https://www.linkedin.com"
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
+
+options = webdriver.chrome.options.Options()
+if os.getenv('ENV') != "development":
+    options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-setuid-sandbox")
+options.add_argument("--disable-extensions")
+
+
+service = ChromeService(executable_path=ChromeDriverManager().install())
+DRIVER = webdriver.Chrome(options=options, service=service)
 
 
 def login_linkedIn():
@@ -33,7 +46,7 @@ def login_linkedIn():
 
 def get_Recommendations(username: str):
     DRIVER.get(f'{URL_BASE}/in/{username}/details/recommendations')
-    sleep(10)
+    sleep(15)
 
     recommendations_recieved = DRIVER.find_element(
         By.XPATH,

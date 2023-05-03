@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 
-from scraping import get_Recommendations, login_linkedIn, URL_BASE
-from driver import DRIVER
+from scraping import get_Recommendations, login_linkedIn
 
 
 is_login = login_linkedIn()
@@ -18,5 +17,4 @@ if is_login:
     @app.get("/username/{username}")
     def get_recommendations(username: str):
         recommendations = get_Recommendations(username)
-        DRIVER.get(URL_BASE)
         return recommendations
